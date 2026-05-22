@@ -117,9 +117,16 @@
     .nav-links a {
       color: var(--muted); text-decoration: none;
       font-size: 14px; font-weight: 500;
-      transition: color .2s;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: color .2s, border-color .2s, background .2s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(240,112,0,.07);
+    }
     .nav-cta { font-size: 14px; padding: 10px 22px; }
 
     /* Hamburger */
