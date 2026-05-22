@@ -231,21 +231,37 @@
       font-size: 16px; color: var(--muted);
       margin-bottom: 32px;
     }
+    .hero-badge-wrap { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 7px 16px;
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 22px;
       background: rgba(240,112,0,.12);
       border: 1px solid rgba(240,112,0,.3);
       border-radius: 100px;
-      font-size: 13px; font-weight: 600; color: var(--accent);
-      margin-bottom: 28px;
+      font-size: 15px; font-weight: 700; color: var(--accent);
+      align-self: flex-start;
     }
     .hero-badge-dot {
-      width: 7px; height: 7px;
+      width: 8px; height: 8px;
       background: var(--accent); border-radius: 50%;
       animation: blink 2s ease-in-out infinite;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero-cars {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-car-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 100px;
+      font-size: 13px; font-weight: 600; color: var(--text);
+      transition: border-color .2s, background .2s;
+    }
+    .hero-car-tag:hover { border-color: rgba(240,112,0,.4); background: rgba(240,112,0,.06); }
+    .hero-car-tag svg { opacity: .6; }
 
     .hero h1 {
       font-size: 80px; font-weight: 900;
@@ -710,9 +726,25 @@
 
 
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Дніпро — набір водіїв відкрито
+    <div class="hero-badge-wrap">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Дніпро — набір водіїв відкрито
+      </div>
+      <div class="hero-cars">
+        <span class="hero-car-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h11l4 4 1 3H5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          Renault Logan
+        </span>
+        <span class="hero-car-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h11l4 4 1 3H5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          Hyundai Sonata
+        </span>
+        <span class="hero-car-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h11l4 4 1 3H5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          Chevrolet Cobalt
+        </span>
+      </div>
     </div>
 
     <h1>Керуй<br><span class="accent">майбутнім</span></h1>
