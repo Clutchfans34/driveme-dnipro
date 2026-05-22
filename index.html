@@ -351,7 +351,7 @@
       padding: 4px 10px; border-radius: 100px;
       margin-bottom: 16px;
     }
-    .fleet-class.economy { background: rgba(99,179,237,.12); color: #63b3ed; }
+    .fleet-class.economy { background: rgba(148,163,184,.12); color: #94a3b8; }
     .fleet-class.comfort { background: rgba(240,112,0,.12); color: var(--accent); }
     .fleet-class.business { background: rgba(167,139,250,.12); color: #a78bfa; }
     .fleet-class.electric { background: rgba(34,197,94,.12); color: #22c55e; }
@@ -744,6 +744,7 @@
 
   <ul class="nav-links">
     <li><a href="#earnings">Заробіток</a></li>
+    <li><a href="#fleet">Авто</a></li>
     <li><a href="#benefits">Переваги</a></li>
     <li><a href="#how">Як почати</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -761,6 +762,7 @@
 <!-- Mobile drawer -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#earnings" class="mob-link" onclick="closeMenu()">Заробіток</a>
+  <a href="#fleet"    class="mob-link" onclick="closeMenu()">Авто</a>
   <a href="#benefits" class="mob-link" onclick="closeMenu()">Переваги</a>
   <a href="#how"      class="mob-link" onclick="closeMenu()">Як почати</a>
   <a href="#faq"      class="mob-link" onclick="closeMenu()">FAQ</a>
@@ -778,20 +780,6 @@
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
         Дніпро — набір водіїв відкрито
-      </div>
-      <div class="hero-cars">
-        <span class="hero-car-tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h11l4 4 1 3H5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-          Renault Logan
-        </span>
-        <span class="hero-car-tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h11l4 4 1 3H5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-          Hyundai Sonata
-        </span>
-        <span class="hero-car-tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h11l4 4 1 3H5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-          Chevrolet Cobalt
-        </span>
       </div>
     </div>
 
@@ -878,14 +866,14 @@
     <div class="section-head fade-up">
       <div class="label">Автопарк</div>
       <h2 class="title">Авто, на яких<br>ти будеш працювати</h2>
-      <p class="subtitle">119 автомобілів у Дніпрі — від економ до преміум класу. Всі авто застраховані та технічно справні.</p>
+      <p class="subtitle">119 автомобілів у Дніпрі. Всі авто застраховані та технічно справні.</p>
     </div>
     <div class="fleet-grid">
 
       <div class="fleet-card fade-up">
-        <span class="fleet-class economy">Економ</span>
+        <span class="fleet-class economy">Стандарт</span>
         <div class="fleet-model">Renault Logan</div>
-        <div class="fleet-count">19 авто · від 3 300$</div>
+        <div class="fleet-count">19 авто</div>
         <div class="fleet-features">
           <div class="fleet-feat">Надійний та економний</div>
           <div class="fleet-feat">Низька вартість оренди</div>
@@ -894,20 +882,20 @@
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.05s">
-        <span class="fleet-class economy">Економ</span>
+        <span class="fleet-class economy">Стандарт</span>
         <div class="fleet-model">Renault Sandero</div>
-        <div class="fleet-count">14 авто · від 7 000$</div>
+        <div class="fleet-count">14 авто</div>
         <div class="fleet-features">
           <div class="fleet-feat">Просторий салон</div>
           <div class="fleet-feat">Комфортна підвіска</div>
-          <div class="fleet-feat">Економ клас Uklon</div>
+          <div class="fleet-feat">Стандарт клас Uklon</div>
         </div>
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.1s">
-        <span class="fleet-class economy">Економ</span>
+        <span class="fleet-class economy">Стандарт</span>
         <div class="fleet-model">Peugeot 301</div>
-        <div class="fleet-count">24 авто · від 5 200$</div>
+        <div class="fleet-count">24 авто</div>
         <div class="fleet-features">
           <div class="fleet-feat">Французька якість</div>
           <div class="fleet-feat">Малий расход пального</div>
@@ -916,9 +904,9 @@
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.15s">
-        <span class="fleet-class economy">Економ</span>
+        <span class="fleet-class economy">Стандарт</span>
         <div class="fleet-model">Chevrolet Cobalt</div>
-        <div class="fleet-count">9 авто · від 8 000$</div>
+        <div class="fleet-count">9 авто</div>
         <div class="fleet-features">
           <div class="fleet-feat">Просторий багажник</div>
           <div class="fleet-feat">Надійний двигун</div>
@@ -929,9 +917,9 @@
       <div class="fleet-card fade-up" style="transition-delay:.2s">
         <span class="fleet-class comfort">Комфорт</span>
         <div class="fleet-model">Hyundai Sonata LF</div>
-        <div class="fleet-count">26 авто · від 6 400$</div>
+        <div class="fleet-count">26 авто</div>
         <div class="fleet-features">
-          <div class="fleet-feat">Бізнес-вигляд</div>
+          <div class="fleet-feat">Представницький вигляд</div>
           <div class="fleet-feat">Вищий тариф Uklon</div>
           <div class="fleet-feat">Більший заробіток</div>
         </div>
@@ -939,33 +927,33 @@
 
       <div class="fleet-card fade-up" style="transition-delay:.25s">
         <span class="fleet-class comfort">Комфорт</span>
-        <div class="fleet-model">Hyundai Sonata New Rise</div>
-        <div class="fleet-count">7 авто · від 13 500$</div>
+        <div class="fleet-model">Toyota Prius</div>
+        <div class="fleet-count">5 авто</div>
         <div class="fleet-features">
-          <div class="fleet-feat">Сучасний дизайн</div>
-          <div class="fleet-feat">Преміум комплектація</div>
-          <div class="fleet-feat">Топ тариф</div>
+          <div class="fleet-feat">Гібридний двигун</div>
+          <div class="fleet-feat">Мінімум витрат на пальне</div>
+          <div class="fleet-feat">Комфорт клас Uklon</div>
         </div>
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.3s">
         <span class="fleet-class business">Бізнес</span>
-        <div class="fleet-model">Toyota Prius</div>
-        <div class="fleet-count">5 авто · від 9 000$</div>
+        <div class="fleet-model">Hyundai Sonata New Rise</div>
+        <div class="fleet-count">7 авто</div>
         <div class="fleet-features">
-          <div class="fleet-feat">Гібридний двигун</div>
-          <div class="fleet-feat">Мінімум витрат на пальне</div>
-          <div class="fleet-feat">Комфорт клас</div>
+          <div class="fleet-feat">Сучасний дизайн 2019+</div>
+          <div class="fleet-feat">Преміум комплектація</div>
+          <div class="fleet-feat">Топ тариф Uklon</div>
         </div>
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.35s">
         <span class="fleet-class electric">Електро</span>
         <div class="fleet-model">Tesla Model 3</div>
-        <div class="fleet-count">1 авто · від 16 000$</div>
+        <div class="fleet-count">1 авто</div>
         <div class="fleet-features">
           <div class="fleet-feat">Нульові витрати на пальне</div>
-          <div class="fleet-feat">Преміум клас</div>
+          <div class="fleet-feat">Преміум клас Uklon</div>
           <div class="fleet-feat">Найвищий тариф</div>
         </div>
       </div>
