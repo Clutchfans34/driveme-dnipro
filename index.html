@@ -558,9 +558,98 @@
       transition: opacity .55s ease, transform .55s ease;
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════════
+       SCROLL PROGRESS BAR
+    ═══════════════════════════════════════════ */
+    #scroll-bar {
+      position: fixed; top: 0; left: 0; z-index: 999;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), #ffb347);
+      transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       CURSOR GLOW
+    ═══════════════════════════════════════════ */
+    #cursor-glow {
+      pointer-events: none;
+      position: fixed; z-index: 9999;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,112,0,.08) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      transition: opacity .3s;
+      opacity: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       ACTIVE NAV LINK
+    ═══════════════════════════════════════════ */
+    .nav-links a.active {
+      color: var(--text);
+      border-color: rgba(240,112,0,.4);
+      background: rgba(240,112,0,.05);
+    }
+
+    /* ═══════════════════════════════════════════
+       FLOATING NOTIFICATION
+    ═══════════════════════════════════════════ */
+    .float-notify {
+      position: fixed; bottom: 32px; left: 32px; z-index: 300;
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(20,20,20,.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 14px 20px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text);
+      box-shadow: 0 8px 32px rgba(0,0,0,.4);
+      animation: notifyIn .5s cubic-bezier(.34,1.56,.64,1) both;
+      animation-delay: 3s;
+      opacity: 0;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .float-notify:hover { transform: translateY(-3px); }
+    .float-notify-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34,197,94,.4);
+      animation: pulse-green 2s infinite;
+      flex-shrink: 0;
+    }
+    .float-notify span { color: var(--muted); font-size: 12px; }
+    @keyframes notifyIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-green {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,.5); }
+      70%  { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    @media(max-width:768px){ .float-notify { display: none; } }
   </style>
 </head>
 <body>
+
+<!-- Scroll progress bar -->
+<div id="scroll-bar"></div>
+
+<!-- Cursor glow -->
+<div id="cursor-glow"></div>
+
+<!-- Floating notification -->
+<div class="float-notify" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">
+  <div class="float-notify-dot"></div>
+  <div>
+    Набір відкрито!&nbsp;<span>Залишилось 3 місця цього тижня</span>
+  </div>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+</div>
 
 <!-- ═══ NAV ═══ -->
 <nav>
@@ -656,19 +745,19 @@
 
     <div class="hero-stats">
       <div>
-        <div class="stat-val"><span class="a">348</span></div>
+        <div class="stat-val"><span class="a" data-target="348" data-suffix="">348</span></div>
         <div class="stat-lbl">авто в парку</div>
       </div>
       <div>
-        <div class="stat-val"><span class="a">7</span></div>
+        <div class="stat-val"><span class="a" data-target="7" data-suffix="">7</span></div>
         <div class="stat-lbl">міст</div>
       </div>
       <div>
-        <div class="stat-val"><span class="a">60К</span></div>
+        <div class="stat-val"><span class="a" data-target="60" data-suffix="К">60К</span></div>
         <div class="stat-lbl">грн/міс топ-водії</div>
       </div>
       <div>
-        <div class="stat-val"><span class="a">2018</span></div>
+        <div class="stat-val"><span class="a" data-target="2018" data-suffix="">2018</span></div>
         <div class="stat-lbl">рік заснування</div>
       </div>
     </div>
@@ -1034,6 +1123,59 @@
     document.getElementById('heroFormContent').style.display = 'none';
     document.getElementById('heroFormSuccess').style.display = 'block';
   }
+
+  // ── Scroll progress bar ──
+  const scrollBar = document.getElementById('scroll-bar');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    scrollBar.style.width = pct + '%';
+  });
+
+  // ── Cursor glow ──
+  const glow = document.getElementById('cursor-glow');
+  document.addEventListener('mousemove', e => {
+    glow.style.opacity = '1';
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+  // ── Active nav on scroll ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // ── Counter animation ──
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const start = performance.now();
+    const update = now => {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+  const counterObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.done) {
+        e.target.dataset.done = '1';
+        animateCounter(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
 
   // ── Scroll fade-in ──
   const io = new IntersectionObserver(entries => {
