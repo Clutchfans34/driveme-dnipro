@@ -560,6 +560,23 @@
     .calc-result-main { font-size: 46px; color: var(--accent); }
     .calc-divider { width: 1px; height: 64px; background: rgba(240,112,0,.25); flex-shrink: 0; }
     .calc-note { font-size: 11px; color: var(--muted); margin-top: 12px; text-align: center; }
+    @keyframes calc-btn-glow {
+      0%, 100% { box-shadow: 0 0 18px rgba(240,112,0,.4), 0 4px 24px rgba(240,112,0,.25); }
+      50%       { box-shadow: 0 0 36px rgba(240,112,0,.75), 0 4px 32px rgba(240,112,0,.5); }
+    }
+    .calc-cta-btn {
+      white-space: nowrap; flex-shrink: 0;
+      font-size: 16px !important; font-weight: 800 !important;
+      padding: 18px 36px !important; border-radius: 14px !important;
+      animation: calc-btn-glow 2.4s ease-in-out infinite;
+      transform: scale(1);
+      transition: transform .15s, box-shadow .15s !important;
+    }
+    .calc-cta-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 48px rgba(240,112,0,.9), 0 6px 40px rgba(240,112,0,.6) !important;
+      animation: none;
+    }
     @media(max-width:900px){
       .calc-body { grid-template-columns: 1fr; gap: 20px; }
       .calc-pills { flex-direction: row; flex-wrap: wrap; }
@@ -1441,7 +1458,7 @@
             <div class="calc-result-val calc-result-main" id="calc-month">21 500 грн</div>
           </div>
         </div>
-        <a href="#apply" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">Хочу стільки заробляти</a>
+        <a href="#apply" class="btn btn-orange calc-cta-btn">🚀 Хочу стільки заробляти</a>
       </div>
       <div class="calc-note">* Орієнтовний розрахунок на основі середніх показників водіїв DriveMe Дніпро</div>
     </div>
