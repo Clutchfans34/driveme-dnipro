@@ -323,14 +323,14 @@
        FLEET
     ═══════════════════════════════════════════ */
     .fleet {
-      background: url('img/parking.jpg') center/cover no-repeat;
+      background: url('img/wirecar.jpg') right center / 65% auto no-repeat, var(--bg);
       padding: 80px 0;
       position: relative;
     }
     .fleet::before {
       content: '';
       position: absolute; inset: 0;
-      background: rgba(8,8,8,0.90);
+      background: linear-gradient(to right, rgba(8,8,8,0.92) 35%, rgba(8,8,8,0.60) 100%);
       pointer-events: none;
     }
     .fleet .container { position: relative; z-index: 1; }
