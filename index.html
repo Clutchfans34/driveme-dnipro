@@ -1905,13 +1905,15 @@
       })(t0);
     }
 
-    // Базові денні ставки (Стандарт): 8г→1300, 10г→1500, 12г→1700
-    const baseDaily = { 8: 1300, 10: 1500, 12: 1700 };
-    // Множники класів відносно Стандарту
-    const classMulti = { 100: 1.0, 140: 1.4, 190: 1.9 };
+    // Точна таблиця денних виплат грн/день
+    const rateTable = {
+      100: { 8: 1300, 10: 1500, 12: 1700 }, // Стандарт
+      140: { 8: 1500, 10: 1700, 12: 2000 }, // Комфорт
+      190: { 8: 1700, 10: 2000, 12: 2300 }, // Бізнес
+    };
 
     function recalc() {
-      const daily   = Math.round(baseDaily[hours] * classMulti[carRate]);
+      const daily   = rateTable[carRate][hours];
       const monthly = Math.round(daily * shifts * 4.3);
       animateNum('calc-day',   daily);
       animateNum('calc-month', monthly);
