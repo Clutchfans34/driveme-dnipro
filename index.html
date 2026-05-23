@@ -9,7 +9,7 @@
   <style>
     /* ─── Reset ─── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    html { scroll-behavior: smooth; }
 
     /* ─── Tokens ─── */
     :root {
@@ -519,6 +519,7 @@
     /* CALCULATOR */
     .calc-wrap {
       margin-top: 40px;
+      scroll-margin-top: 90px;
       background: var(--bg3);
       border: 1px solid var(--border);
       border-radius: 24px;
@@ -1176,7 +1177,7 @@
     <div class="hero-buttons">
       <a href="#earnings" class="btn btn-ghost hero-earn-btn" style="font-size:15px; padding:15px 32px; border-color: rgba(240,112,0,0.6);">Скільки заробляють наші водії</a>
       <a href="#fleet" class="btn btn-ghost hero-earn-btn" style="font-size:15px; padding:15px 32px; border-color: rgba(240,112,0,0.6);">Наші автомобілі</a>
-      <a href="#earnings" class="btn btn-ghost hero-earn-btn" style="font-size:15px; padding:15px 32px; border-color: rgba(240,112,0,0.6);" onclick="setTimeout(()=>document.querySelector('.calc-wrap').scrollIntoView({behavior:'smooth',block:'center'}),200)">🧮 Калькулятор доходу</a>
+      <a href="#calculator" class="btn btn-ghost hero-earn-btn" style="font-size:15px; padding:15px 32px; border-color: rgba(240,112,0,0.6);">🧮 Калькулятор доходу</a>
       <a href="#apply" class="btn btn-orange hero-mob-cta" style="display:none; width:100%; font-size:16px; padding:15px 32px; text-align:center; margin-top:4px;">Приєднатися до команди водіїв</a>
     </div>
 
@@ -1413,7 +1414,7 @@
     </div>
 
     <!-- CALCULATOR -->
-    <div class="calc-wrap fade-up" style="transition-delay:.3s">
+    <div class="calc-wrap fade-up" id="calculator" style="transition-delay:.3s">
       <div class="calc-header">
         <div class="calc-icon">🧮</div>
         <div>
