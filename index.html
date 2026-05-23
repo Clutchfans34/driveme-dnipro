@@ -781,24 +781,12 @@
     .form-detail-lbl { font-size: 12px; color: var(--muted); }
     .form-detail-val { font-size: 15px; font-weight: 600; }
 
-    @keyframes phone-pulse {
-      0%, 100% {
-        text-shadow: 0 0 0 rgba(240,112,0,0);
-        box-shadow: 0 0 0 rgba(240,112,0,0);
-        border-color: rgba(240,112,0,0.18);
-      }
-      50% {
-        text-shadow: 0 0 18px rgba(240,112,0,.8), 0 0 6px rgba(240,112,0,.5);
-        box-shadow: 0 0 20px rgba(240,112,0,.45), 0 0 7px rgba(240,112,0,.25);
-        border-color: rgba(240,112,0,0.75);
-      }
+    @keyframes phone-glow {
+      0%, 100% { text-shadow: 0 0 0 rgba(240,112,0,0); }
+      50% { text-shadow: 0 0 22px rgba(240,112,0,.95), 0 0 8px rgba(240,112,0,.55); }
     }
-    .phone-pulse {
-      display: inline-block;
-      padding: 5px 13px;
-      border-radius: 9px;
-      border: 1px solid rgba(240,112,0,0.18);
-      animation: phone-pulse 2.6s ease-in-out infinite;
+    .phone-glow {
+      animation: phone-glow 2.6s ease-in-out infinite;
     }
 
     .form-box {
@@ -1122,7 +1110,7 @@
 
     <div style="display:flex; align-items:center; gap:12px; margin-bottom:32px;">
       <span style="font-size:13px; color:var(--muted);">Зателефонуй прямо зараз:</span>
-      <a href="tel:+380965653020" style="display:inline-flex; align-items:center; gap:7px; font-size:16px; font-weight:800; color:var(--accent); text-decoration:none; letter-spacing:-0.3px; transition:opacity .2s;" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+      <a href="tel:+380965653020" class="phone-glow" style="display:inline-flex; align-items:center; gap:7px; font-size:16px; font-weight:800; color:var(--accent); text-decoration:none; letter-spacing:-0.3px;" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         +38 (096) 565-30-20
       </a>
@@ -1569,7 +1557,7 @@
             <div>
               <div class="form-detail-lbl">Зателефонуй прямо зараз</div>
               <div class="form-detail-val">
-                <a href="tel:+380965653020" class="phone-pulse" style="color:var(--accent); text-decoration:none; font-weight:800; font-size:17px; letter-spacing:-0.3px;">+38 (096) 565-30-20</a>
+                <a href="tel:+380965653020" style="color:var(--accent); text-decoration:none; font-weight:800; font-size:17px; letter-spacing:-0.3px;">+38 (096) 565-30-20</a>
               </div>
             </div>
           </div>
