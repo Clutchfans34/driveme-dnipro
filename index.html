@@ -342,6 +342,16 @@
       background: linear-gradient(90deg, transparent, rgba(240,112,0,.5), transparent);
       opacity: 0; transition: opacity .3s;
     }
+    .fleet-brand {
+      position: absolute;
+      right: -28px; top: 50%;
+      transform: translateY(-50%);
+      width: 110px; height: 110px;
+      opacity: 0.06;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+    .fleet-card:hover .fleet-brand { opacity: 0.13; }
     .fleet-card:hover { border-color: rgba(240,112,0,.35); transform: translateY(-4px); }
     .fleet-card:hover::before { opacity: 1; }
     .fleet-class {
@@ -879,6 +889,12 @@
           <div class="fleet-feat">Низька вартість оренди</div>
           <div class="fleet-feat">Ідеально для старту</div>
         </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M50,3 L97,50 L50,97 L3,50 Z M50,20 L80,50 L50,80 L20,50 Z"/>
+            <path d="M50,37 L63,50 L50,63 L37,50 Z"/>
+          </svg>
+        </div>
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.05s">
@@ -889,6 +905,12 @@
           <div class="fleet-feat">Просторий салон</div>
           <div class="fleet-feat">Комфортна підвіска</div>
           <div class="fleet-feat">Стандарт клас Uklon</div>
+        </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M50,3 L97,50 L50,97 L3,50 Z M50,20 L80,50 L50,80 L20,50 Z"/>
+            <path d="M50,37 L63,50 L50,63 L37,50 Z"/>
+          </svg>
         </div>
       </div>
 
@@ -901,6 +923,12 @@
           <div class="fleet-feat">Малий расход пального</div>
           <div class="fleet-feat">Зручний для пасажирів</div>
         </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50,5 L88,20 L88,56 Q86,82 50,97 Q14,82 12,56 L12,20 Z" stroke="white" stroke-width="5"/>
+            <path d="M40,32 L40,70 M40,32 Q62,32 62,44 Q62,56 40,56" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.15s">
@@ -911,6 +939,14 @@
           <div class="fleet-feat">Просторий багажник</div>
           <div class="fleet-feat">Надійний двигун</div>
           <div class="fleet-feat">Популярний у пасажирів</div>
+        </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="38" width="35" height="24" rx="3"/>
+            <rect x="60" y="38" width="35" height="24" rx="3"/>
+            <rect x="38" y="38" width="24" height="9"/>
+            <rect x="38" y="53" width="24" height="9"/>
+          </svg>
         </div>
       </div>
 
@@ -923,6 +959,11 @@
           <div class="fleet-feat">Вищий тариф Uklon</div>
           <div class="fleet-feat">Більший заробіток</div>
         </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,20 L20,80 L35,80 L35,57 L65,57 L65,80 L80,80 L80,20 L65,20 L65,43 L35,43 L35,20 Z"/>
+          </svg>
+        </div>
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.25s">
@@ -933,6 +974,13 @@
           <div class="fleet-feat">Гібридний двигун</div>
           <div class="fleet-feat">Мінімум витрат на пальне</div>
           <div class="fleet-feat">Комфорт клас Uklon</div>
+        </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="38" rx="42" ry="20" stroke="white" stroke-width="5"/>
+            <ellipse cx="34" cy="63" rx="20" ry="29" stroke="white" stroke-width="5"/>
+            <ellipse cx="66" cy="63" rx="20" ry="29" stroke="white" stroke-width="5"/>
+          </svg>
         </div>
       </div>
 
@@ -945,6 +993,11 @@
           <div class="fleet-feat">Преміум комплектація</div>
           <div class="fleet-feat">Топ тариф Uklon</div>
         </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,20 L20,80 L35,80 L35,57 L65,57 L65,80 L80,80 L80,20 L65,20 L65,43 L35,43 L35,20 Z"/>
+          </svg>
+        </div>
       </div>
 
       <div class="fleet-card fade-up" style="transition-delay:.35s">
@@ -955,6 +1008,12 @@
           <div class="fleet-feat">Нульові витрати на пальне</div>
           <div class="fleet-feat">Преміум клас Uklon</div>
           <div class="fleet-feat">Найвищий тариф</div>
+        </div>
+        <div class="fleet-brand">
+          <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8,20 L92,20 L92,33 L60,33 L60,80 L40,80 L40,33 L8,33 Z"/>
+            <path d="M40,20 Q50,12 60,20" fill="none" stroke="white" stroke-width="6" stroke-linecap="round"/>
+          </svg>
         </div>
       </div>
 
