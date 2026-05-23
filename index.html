@@ -279,16 +279,17 @@
     .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
 
     .hero-stats {
-      display: flex; gap: 12px; flex-wrap: wrap;
+      display: flex; gap: 8px; flex-wrap: nowrap;
       padding-top: 36px;
       border-top: 1px solid var(--border);
     }
     .stat-item {
-      padding: 14px 18px;
-      border-radius: 14px;
+      padding: 10px 14px;
+      border-radius: 12px;
       border: 1px solid rgba(240,112,0,0.22);
       transition: border-color .25s, box-shadow .25s, background .25s;
       cursor: default;
+      flex-shrink: 0;
     }
     .stat-item:hover {
       border-color: rgba(240,112,0,0.65);
@@ -296,10 +297,10 @@
       box-shadow: 0 0 22px rgba(240,112,0,0.18), inset 0 0 16px rgba(240,112,0,0.06);
     }
     .stat-val {
-      font-size: 34px; font-weight: 900; letter-spacing: -1px;
+      font-size: 28px; font-weight: 900; letter-spacing: -0.5px;
     }
     .stat-val .a { color: var(--accent); }
-    .stat-lbl { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .stat-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; white-space: nowrap; }
 
     /* car illustration area */
     .hero-visual {
