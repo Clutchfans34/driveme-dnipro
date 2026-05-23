@@ -321,16 +321,41 @@
     }
     @media(max-width:768px){
       .hero {
-        padding: 110px 20px 64px;
+        padding: 100px 20px 56px;
         grid-template-columns: 1fr;
       }
       .hero-form-card { display: none; }
       .hero-mob-cta { display: block !important; }
-      .hero-earn-btn { width: 100%; text-align: center; }
-      .hero h1 { font-size: 44px; letter-spacing: -2px; }
-      .hero-sub { font-size: 16px; }
-      .hero-stats { gap: 24px; }
-      .stat-val { font-size: 26px; }
+      .hero h1 { font-size: 46px; letter-spacing: -2px; }
+      .hero-sub { font-size: 15px; line-height: 1.65; max-width: 100%; }
+
+      /* Кнопки — стекуємо вертикально */
+      .hero-buttons { flex-direction: column; gap: 10px; }
+      .hero-earn-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        font-size: 14px !important;
+        padding: 14px 20px !important;
+      }
+
+      /* Телефон */
+      div[style*="Зателефонуй"] { flex-wrap: wrap; gap: 8px; }
+
+      /* Статистика — 3 колонки по 2 рядки */
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-top: 24px;
+      }
+      .stat-item {
+        flex: 1 1 calc(33.333% - 8px);
+        min-width: 0;
+        flex-shrink: 1;
+        padding: 9px 10px;
+      }
+      .stat-val { font-size: 20px; }
+      .stat-lbl { font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     }
 
     /* ═══════════════════════════════════════════
@@ -588,6 +613,16 @@
     @media(max-width:560px){
       .steps-grid { grid-template-columns: 1fr; }
       section { padding: 64px 20px; }
+      .title { font-size: 36px; letter-spacing: -1px; }
+      .subtitle { font-size: 15px; }
+      .fleet-grid { gap: 12px; }
+      .earn-card { padding: 28px 24px; }
+      .earn-amount { font-size: 46px; }
+      .benefits-grid { gap: 14px; }
+      .benefit { padding: 24px 20px; }
+      .faq-list { margin-top: 32px; }
+      .form-box { padding: 28px 20px; }
+      .form-wrapper { gap: 32px; }
     }
 
     /* ═══════════════════════════════════════════
