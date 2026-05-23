@@ -742,12 +742,23 @@
     ═══════════════════════════════════════════ */
     .form-section {
       position: relative; overflow: hidden;
-      background: url('img/highway.jpg') center/cover no-repeat;
+      background: var(--bg);
     }
     .form-section::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
-      background: rgba(8,4,2,0.91);
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    }
+    .form-section::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 65% at 75% 45%, rgba(240,112,0,.13) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 40% at 20% 70%, rgba(240,112,0,.06) 0%, transparent 60%);
     }
     .form-wrapper {
       display: grid;
