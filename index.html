@@ -533,16 +533,70 @@
     .faq-item.open .faq-a { max-height: 300px; padding: 0 28px 22px; }
 
     /* ═══════════════════════════════════════════
+       PHOTO GALLERY
+    ═══════════════════════════════════════════ */
+    .gallery-section {
+      padding: 80px 40px;
+      background: var(--bg);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      height: 300px;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+      filter: brightness(.9);
+    }
+    .gallery-item:hover img { transform: scale(1.07); filter: brightness(1); }
+    .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,.1) 55%, transparent 100%);
+      transition: background .3s;
+    }
+    .gallery-item:hover .gallery-item-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,.2) 60%, transparent 100%);
+    }
+    .gallery-item-caption {
+      position: absolute; bottom: 18px; left: 20px; right: 20px;
+      font-size: 13px; font-weight: 700; letter-spacing: .5px;
+      color: rgba(255,255,255,.7);
+      transform: translateY(4px);
+      transition: all .3s;
+    }
+    .gallery-item:hover .gallery-item-caption {
+      color: #fff;
+      transform: translateY(0);
+    }
+    .gallery-item-caption span {
+      display: block; font-size: 11px; font-weight: 500;
+      color: var(--accent); letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 3px;
+    }
+    @media(max-width:900px){ .gallery-grid { grid-template-columns: repeat(2,1fr); gap: 12px; } }
+    @media(max-width:560px){ .gallery-grid { height: auto; } .gallery-item { height: 200px; } }
+
+    /* ═══════════════════════════════════════════
        FORM SECTION
     ═══════════════════════════════════════════ */
     .form-section {
       position: relative; overflow: hidden;
-      background: linear-gradient(160deg, #0D0D0D 0%, #160800 100%);
+      background: url('img/billboard.jpg') center/cover no-repeat;
     }
     .form-section::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 55% 60% at 50% 50%, rgba(240,112,0,.07) 0%, transparent 70%);
+      background: rgba(8,4,2,0.91);
     }
     .form-wrapper {
       display: grid;
@@ -1165,6 +1219,54 @@
         </button>
         <div class="faq-a">Є мінімальна щоденна орендна плата за авто. Графік роботи — повністю вільний, але рекомендуємо мінімум 6 годин на день для комфортного заробітку.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-head fade-up" style="text-align:center;">
+      <div class="label">DriveMe — більше ніж автопарк</div>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="gallery-item fade-up">
+        <img src="img/expo.jpg" alt="DriveMe на виставці">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-caption">
+          <span>Бренд</span>
+          Учасники виставок та автоподій
+        </div>
+      </div>
+
+      <div class="gallery-item fade-up" style="transition-delay:.08s">
+        <img src="img/office.jpg" alt="Офіс DriveMe">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-caption">
+          <span>Офіс</span>
+          Власний офіс у Дніпрі
+        </div>
+      </div>
+
+      <div class="gallery-item fade-up" style="transition-delay:.16s">
+        <img src="img/instagram.jpg" alt="DriveMe в Instagram">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-caption">
+          <span>Соцмережі</span>
+          37K підписників в Instagram
+        </div>
+      </div>
+
+      <div class="gallery-item fade-up" style="transition-delay:.24s">
+        <img src="img/backpack.jpg" alt="DriveMe мерч">
+        <div class="gallery-item-overlay"></div>
+        <div class="gallery-item-caption">
+          <span>Welcome-kit</span>
+          Стартовий набір для нових водіїв
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
