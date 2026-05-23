@@ -770,11 +770,45 @@
     .form-detail-lbl { font-size: 12px; color: var(--muted); }
     .form-detail-val { font-size: 15px; font-weight: 600; }
 
+    @property --glow-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes form-glow-spin  { to { --glow-angle: 360deg; } }
+    @keyframes form-glow-pulse {
+      0%,100% { box-shadow: 0 0 40px -10px rgba(255,255,255,0.06), 0 24px 56px rgba(0,0,0,0.5); }
+      50%     { box-shadow: 0 0 70px -10px rgba(255,255,255,0.18), 0 24px 56px rgba(0,0,0,0.5); }
+    }
+
     .form-box {
       background: var(--bg2);
       border-radius: 24px;
-      border: 1px solid var(--border);
+      border: 1px solid transparent;
       padding: 48px;
+      position: relative;
+      isolation: isolate;
+      animation: form-glow-pulse 3s ease-in-out infinite;
+    }
+    .form-box::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 26px;
+      background: conic-gradient(
+        from var(--glow-angle),
+        transparent 0deg,
+        transparent 248deg,
+        rgba(255,255,255,0.04) 263deg,
+        rgba(255,255,255,0.7)  285deg,
+        rgba(255,255,255,1)    294deg,
+        rgba(255,255,255,0.7)  303deg,
+        rgba(255,255,255,0.04) 318deg,
+        transparent 333deg,
+        transparent 360deg
+      );
+      z-index: -1;
+      animation: form-glow-spin 4.5s linear infinite;
     }
     .form-box h3 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
     .form-box > p { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
