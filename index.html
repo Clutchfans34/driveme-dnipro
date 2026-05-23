@@ -516,6 +516,59 @@
 
     @media(max-width:900px){ .earnings-grid { grid-template-columns: 1fr; } }
 
+    /* CALCULATOR */
+    .calc-wrap {
+      margin-top: 40px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 44px;
+    }
+    .calc-header {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 32px;
+    }
+    .calc-icon { font-size: 32px; line-height: 1; }
+    .calc-title { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+    .calc-sub { font-size: 14px; color: var(--muted); }
+    .calc-body {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+      margin-bottom: 28px;
+    }
+    .calc-lbl {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+    }
+    .calc-pills { display: flex; flex-direction: column; gap: 8px; }
+    .calc-pill {
+      padding: 10px 16px; border-radius: 10px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--muted); font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all .2s; text-align: left; font-family: inherit;
+    }
+    .calc-pill:hover { border-color: rgba(240,112,0,.4); color: var(--text); background: rgba(240,112,0,.04); }
+    .calc-pill.active { border-color: var(--accent); background: rgba(240,112,0,.1); color: var(--accent); }
+    .calc-result {
+      background: rgba(240,112,0,.06); border: 1px solid rgba(240,112,0,.22);
+      border-radius: 16px; padding: 28px 32px;
+      display: flex; align-items: center; gap: 32px;
+    }
+    .calc-result-row { display: flex; align-items: center; gap: 24px; flex: 1; }
+    .calc-result-item { flex: 1; }
+    .calc-result-lbl { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .calc-result-val { font-size: 30px; font-weight: 900; letter-spacing: -1px; }
+    .calc-result-main { font-size: 46px; color: var(--accent); }
+    .calc-divider { width: 1px; height: 64px; background: rgba(240,112,0,.25); flex-shrink: 0; }
+    .calc-note { font-size: 11px; color: var(--muted); margin-top: 12px; text-align: center; }
+    @media(max-width:900px){
+      .calc-body { grid-template-columns: 1fr; gap: 20px; }
+      .calc-pills { flex-direction: row; flex-wrap: wrap; }
+      .calc-result { flex-direction: column; gap: 20px; }
+      .calc-result-row { width: 100%; }
+      .calc-wrap { padding: 28px 20px; }
+      .calc-result-main { font-size: 38px; }
+    }
+
     /* ═══════════════════════════════════════════
        BENEFITS
     ═══════════════════════════════════════════ */
@@ -1339,6 +1392,59 @@
         </ul>
       </div>
     </div>
+
+    <!-- CALCULATOR -->
+    <div class="calc-wrap fade-up" style="transition-delay:.3s">
+      <div class="calc-header">
+        <div class="calc-icon">🧮</div>
+        <div>
+          <div class="calc-title">Порахуй свій заробіток</div>
+          <div class="calc-sub">Вибери параметри — побачиш реальну цифру на руки</div>
+        </div>
+      </div>
+      <div class="calc-body">
+        <div>
+          <div class="calc-lbl">Клас авто</div>
+          <div class="calc-pills" id="calc-class">
+            <button class="calc-pill active" data-val="100">🚗 Стандарт</button>
+            <button class="calc-pill" data-val="140">✨ Комфорт</button>
+            <button class="calc-pill" data-val="190">💼 Бізнес</button>
+          </div>
+        </div>
+        <div>
+          <div class="calc-lbl">Змін на тиждень</div>
+          <div class="calc-pills" id="calc-shifts">
+            <button class="calc-pill" data-val="3">3 дні</button>
+            <button class="calc-pill active" data-val="5">5 днів</button>
+            <button class="calc-pill" data-val="7">Щодня</button>
+          </div>
+        </div>
+        <div>
+          <div class="calc-lbl">Годин за зміну</div>
+          <div class="calc-pills" id="calc-hours">
+            <button class="calc-pill" data-val="8">8 годин</button>
+            <button class="calc-pill active" data-val="10">10 годин</button>
+            <button class="calc-pill" data-val="12">12 годин</button>
+          </div>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-row">
+          <div class="calc-result-item">
+            <div class="calc-result-lbl">На день</div>
+            <div class="calc-result-val" id="calc-day">1 000 грн</div>
+          </div>
+          <div class="calc-divider"></div>
+          <div class="calc-result-item">
+            <div class="calc-result-lbl">На місяць</div>
+            <div class="calc-result-val calc-result-main" id="calc-month">21 500 грн</div>
+          </div>
+        </div>
+        <a href="#apply" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">Хочу стільки заробляти</a>
+      </div>
+      <div class="calc-note">* Орієнтовний розрахунок на основі середніх показників водіїв DriveMe Дніпро</div>
+    </div>
+
   </div>
 </section>
 
@@ -1779,6 +1885,49 @@
     document.getElementById('mobileMenu').classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  /* ── КАЛЬКУЛЯТОР ЗАРОБІТКУ ── */
+  (function(){
+    let carRate = 100, shifts = 5, hours = 10;
+
+    function animateNum(id, target) {
+      const el = document.getElementById(id);
+      const start = parseInt(el.dataset.cur || target);
+      el.dataset.cur = target;
+      const dur = 450;
+      const t0 = performance.now();
+      (function step(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        const ease = p < .5 ? 2*p*p : 1 - Math.pow(-2*p+2, 2)/2;
+        const val = Math.round(start + (target - start) * ease);
+        el.textContent = val.toLocaleString('uk-UA') + ' грн';
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
+    }
+
+    function recalc() {
+      const daily  = carRate * hours;
+      const monthly = Math.round(daily * shifts * 4.3);
+      animateNum('calc-day',   daily);
+      animateNum('calc-month', monthly);
+    }
+
+    function bindGroup(groupId, setter) {
+      document.querySelectorAll('#' + groupId + ' .calc-pill').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#' + groupId + ' .calc-pill').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          setter(+this.dataset.val);
+          recalc();
+        });
+      });
+    }
+
+    bindGroup('calc-class',  v => carRate = v);
+    bindGroup('calc-shifts', v => shifts  = v);
+    bindGroup('calc-hours',  v => hours   = v);
+    recalc();
+  })();
 </script>
 </body>
 </html>
