@@ -506,33 +506,66 @@
     .steps-section { background: var(--bg2); }
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0; margin-top: 56px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 56px;
+    }
+    .step-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
       position: relative;
+      overflow: hidden;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
     }
-    .steps-grid::after {
+    .step-card:hover {
+      border-color: rgba(240,112,0,.45);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.3), 0 0 20px rgba(240,112,0,.08);
+    }
+    .step-card::before {
       content: '';
-      position: absolute;
-      top: 36px; left: 18%; right: 18%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0; transition: opacity .3s;
     }
-    .step { padding: 0 24px; text-align: center; }
-    .step-num {
-      width: 72px; height: 72px;
-      background: var(--accent); border-radius: 50%;
+    .step-card:hover::before { opacity: 1; }
+    .step-watermark {
+      position: absolute; top: -10px; right: 12px;
+      font-size: 96px; font-weight: 900; line-height: 1;
+      color: rgba(255,255,255,.04);
+      pointer-events: none; user-select: none;
+    }
+    .step-badge {
+      width: 44px; height: 44px;
+      background: rgba(240,112,0,.15);
+      border: 1px solid rgba(240,112,0,.3);
+      border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 28px; font-weight: 900;
-      margin: 0 auto 24px;
-      position: relative; z-index: 1;
-      box-shadow: 0 0 0 8px rgba(240,112,0,.12);
+      font-size: 18px; font-weight: 900; color: var(--accent);
+      margin-bottom: 20px;
     }
-    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
-    .step p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .step-card h3 { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+    .step-card p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+    .step-arrow {
+      position: absolute; right: -9px; top: 50%;
+      transform: translateY(-50%);
+      width: 18px; height: 18px;
+      background: var(--bg2);
+      border-top: 1px solid rgba(240,112,0,.3);
+      border-right: 1px solid rgba(240,112,0,.3);
+      transform: translateY(-50%) rotate(45deg);
+      z-index: 2;
+    }
+    .step-card:last-child .step-arrow { display: none; }
 
-    @media(max-width:768px){
-      .steps-grid { grid-template-columns: 1fr; gap: 40px; }
-      .steps-grid::after { display: none; }
+    @media(max-width:900px){
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .step-arrow { display: none; }
+    }
+    @media(max-width:560px){
+      .steps-grid { grid-template-columns: 1fr; }
       section { padding: 64px 20px; }
     }
 
@@ -1208,24 +1241,42 @@
   <div class="container">
     <div class="section-head fade-up">
       <div class="label">Як почати</div>
-      <h2 class="title">Три кроки до<br>першого заробітку</h2>
+      <h2 class="title">Від заявки до<br>першого виторгу</h2>
+      <p class="subtitle">Весь шлях займає від одного дня</p>
     </div>
     <div class="steps-grid">
-      <div class="step fade-up">
-        <div class="step-num">1</div>
+
+      <div class="step-card fade-up">
+        <div class="step-watermark">1</div>
+        <div class="step-arrow"></div>
+        <div class="step-badge">1</div>
         <h3>Залиш заявку</h3>
-        <p>Заповни форму нижче — ім'я та телефон. Менеджер передзвонить протягом 30 хвилин.</p>
+        <p>Заповни форму або зателефонуй. Менеджер зв'яжеться з тобою протягом 30 хвилин.</p>
       </div>
-      <div class="step fade-up" style="transition-delay:.1s">
-        <div class="step-num">2</div>
+
+      <div class="step-card fade-up" style="transition-delay:.08s">
+        <div class="step-watermark">2</div>
+        <div class="step-arrow"></div>
+        <div class="step-badge">2</div>
         <h3>Пройди співбесіду</h3>
-        <p>Коротка зустріч в офісі або онлайн. Перевірка документів, вибір авто, обговорення умов.</p>
+        <p>Зустріч в офісі або онлайн. Перевірка документів, вибір авто, обговорення умов оренди.</p>
       </div>
-      <div class="step fade-up" style="transition-delay:.2s">
-        <div class="step-num">3</div>
+
+      <div class="step-card fade-up" style="transition-delay:.16s">
+        <div class="step-watermark">3</div>
+        <div class="step-arrow"></div>
+        <div class="step-badge">3</div>
+        <h3>Інструктаж</h3>
+        <p>Базове навчання перед першою зміною: робота з додатком Uklon, правила парку, підтримка 24/7.</p>
+      </div>
+
+      <div class="step-card fade-up" style="transition-delay:.24s">
+        <div class="step-watermark">4</div>
+        <div class="step-badge">4</div>
         <h3>Починай заробляти</h3>
-        <p>Отримай ключі від авто і вже сьогодні виходь на перші замовлення. Перший виторг — в той же день.</p>
+        <p>Отримай ключі від авто і виходь на перші замовлення. Перший виторг — вже в цей же день.</p>
       </div>
+
     </div>
   </div>
 </section>
