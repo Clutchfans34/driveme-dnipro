@@ -579,7 +579,8 @@
     }
     @media(max-width:900px){
       .calc-body { grid-template-columns: 1fr; gap: 20px; }
-      .calc-pills { flex-direction: row; flex-wrap: wrap; }
+      .calc-pills { flex-direction: row; flex-wrap: nowrap; gap: 6px; }
+      .calc-pill { flex: 1; text-align: center; padding: 10px 6px; font-size: 13px; }
       .calc-result { flex-direction: column; gap: 20px; }
       .calc-result-row { width: 100%; }
       .calc-wrap { padding: 28px 20px; }
