@@ -329,6 +329,11 @@
       .hero h1 { font-size: 46px; letter-spacing: -2px; }
       .hero-sub { font-size: 15px; line-height: 1.65; max-width: 100%; }
 
+      /* Badge + socials: badge компактний, socials справа */
+      .hero-badge-wrap { flex-wrap: nowrap; align-items: center; gap: 8px; margin-bottom: 20px; }
+      .hero-badge { font-size: 12px; padding: 8px 14px; }
+      .hero-badge-socials { margin-left: auto; flex-shrink: 0; }
+
       /* Кнопки — стекуємо вертикально */
       .hero-buttons { flex-direction: column; gap: 10px; }
       .hero-earn-btn {
@@ -339,23 +344,35 @@
         padding: 14px 20px !important;
       }
 
-      /* Телефон */
-      div[style*="Зателефонуй"] { flex-wrap: wrap; gap: 8px; }
+      /* Телефон — запобігаємо перекриттю FAB */
+      div[style*="Зателефонуй"] { flex-wrap: wrap; gap: 8px; padding-right: 72px; }
 
       /* Статистика — 3 колонки по 2 рядки */
       .hero-stats {
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
         padding-top: 24px;
       }
       .stat-item {
-        flex: 1 1 calc(33.333% - 8px);
+        flex: 1 1 calc(33.333% - 6px);
         min-width: 0;
         flex-shrink: 1;
-        padding: 9px 10px;
+        padding: 8px 10px;
       }
-      .stat-val { font-size: 20px; }
+      .stat-val { font-size: 19px; }
       .stat-lbl { font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+      /* Form: показуємо ліву колонку з деталями на мобільному */
+      .form-wrapper { grid-template-columns: 1fr; gap: 24px; }
+      .form-promo { display: block; }
+      .form-promo h2 { font-size: 32px; margin-bottom: 12px; }
+      .form-promo .subtitle { display: none; }
+      .form-detail-icon { width: 38px; height: 38px; font-size: 17px; }
+      .form-detail { margin-bottom: 14px; }
+
+      /* Footer: запобігаємо перекриттю FAB */
+      footer { padding: 28px 20px 28px; }
+      footer p { padding-right: 72px; }
     }
 
     /* ═══════════════════════════════════════════
