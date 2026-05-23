@@ -194,7 +194,7 @@
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       gap: 20px;
-      align-items: center;
+      align-items: start;
       position: relative; overflow: hidden;
     }
     .hero-glow {
@@ -911,26 +911,30 @@
 
     <div class="hero-stats">
       <div>
-        <div class="stat-val"><span class="a" data-target="348" data-suffix="">348</span></div>
+        <div class="stat-val"><span class="a">348</span></div>
         <div class="stat-lbl">авто в парку</div>
       </div>
       <div>
-        <div class="stat-val"><span class="a" data-target="7" data-suffix="">7</span></div>
-        <div class="stat-lbl">міст</div>
+        <div class="stat-val"><span class="a">600<span style="color:var(--accent)">+</span></span></div>
+        <div class="stat-lbl">діючих водіїв</div>
       </div>
       <div>
-        <div class="stat-val"><span class="a" data-target="60" data-suffix="К">60К</span></div>
+        <div class="stat-val"><span class="a">60К<span style="color:var(--accent)">+</span></span></div>
         <div class="stat-lbl">грн/міс топ-водії</div>
       </div>
       <div>
-        <div class="stat-val"><span class="a" data-target="2018" data-suffix="">2018</span></div>
-        <div class="stat-lbl">рік заснування</div>
+        <div class="stat-val"><span class="a">7</span></div>
+        <div class="stat-lbl">міст</div>
+      </div>
+      <div>
+        <div class="stat-val" style="font-size:26px;"><span class="a">24/7</span></div>
+        <div class="stat-lbl">підтримка водіїв</div>
       </div>
     </div>
   </div>
 
   <!-- ФОРМА ПРАВОРУЧ -->
-  <div class="hero-form-card">
+  <div class="hero-form-card" style="margin-top: 52px;">
     <h3>Приєднуйся до команди водіїв!</h3>
     <p>Введи своє ім'я та номер телефону</p>
     <div id="heroFormContent">
