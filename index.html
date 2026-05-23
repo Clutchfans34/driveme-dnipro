@@ -432,6 +432,10 @@
     }
     .fleet-feat::before { content: '✓'; color: var(--accent); font-weight: 800; font-size: 11px; }
     @media(max-width:1024px){ .fleet-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:768px){
+      .fleet { padding: 64px 20px; }
+      .fleet .container { padding: 0; }
+    }
     @media(max-width:560px){ .fleet-grid { grid-template-columns: 1fr; } }
 
     /* ═══════════════════════════════════════════
@@ -896,6 +900,64 @@
       100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
     }
     @media(max-width:768px){ .float-notify { display: none; } }
+
+    /* ═══════════════════════════════════════════
+       FAB — FLOATING ACTION BUTTON
+    ═══════════════════════════════════════════ */
+    .fab {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 500;
+      width: 62px; height: 62px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; color: #fff;
+      box-shadow: 0 6px 28px rgba(240,112,0,.55);
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .fab:hover {
+      transform: scale(1.12) translateY(-2px);
+      box-shadow: 0 12px 40px rgba(240,112,0,.75);
+    }
+    /* Pulse ring */
+    .fab::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      animation: fab-ping 2.2s ease-out infinite;
+    }
+    @keyframes fab-ping {
+      0%   { box-shadow: 0 0 0 0   rgba(240,112,0,.65); }
+      70%  { box-shadow: 0 0 0 18px rgba(240,112,0,0);  }
+      100% { box-shadow: 0 0 0 0   rgba(240,112,0,0);   }
+    }
+    /* Tooltip */
+    .fab-tip {
+      position: absolute;
+      right: 72px; top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15,15,15,.95);
+      border: 1px solid rgba(240,112,0,.35);
+      color: #fff;
+      font-size: 13px; font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 10px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .fab-tip::after {
+      content: '';
+      position: absolute; right: -7px; top: 50%;
+      transform: translateY(-50%);
+      border: 7px solid transparent;
+      border-right: none;
+      border-left-color: rgba(240,112,0,.35);
+    }
+    .fab:hover .fab-tip { opacity: 1; }
   </style>
 </head>
 <body>
@@ -1501,6 +1563,14 @@
   <p>© 2026 DriveMe. Дніпро. Офіційний партнер Uklon.</p>
   <p style="color:rgba(255,255,255,.3)">driveme.ua</p>
 </footer>
+
+<!-- ═══ FAB ═══ -->
+<a href="#apply" class="fab" aria-label="Подати заявку">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+  </svg>
+  <div class="fab-tip">Подати заявку</div>
+</a>
 
 <!-- ═══ SCRIPT ═══ -->
 <script>
