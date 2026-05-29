@@ -449,45 +449,47 @@
     }
     /* === HEADLIGHT GLOW ANIMATION === */
     @keyframes headlight-pulse {
-      0%   { opacity: 0.55; }
-      8%   { opacity: 0.85; }
-      12%  { opacity: 0.40; }
-      20%  { opacity: 0.90; }
-      25%  { opacity: 0.50; }
-      35%  { opacity: 1.00; }
-      50%  { opacity: 0.65; }
-      60%  { opacity: 0.95; }
-      75%  { opacity: 0.45; }
-      88%  { opacity: 0.88; }
-      100% { opacity: 0.55; }
+      0%   { opacity: 0.50; }
+      7%   { opacity: 0.90; }
+      13%  { opacity: 0.35; }
+      22%  { opacity: 0.95; }
+      28%  { opacity: 0.45; }
+      38%  { opacity: 1.00; }
+      52%  { opacity: 0.60; }
+      63%  { opacity: 0.92; }
+      78%  { opacity: 0.42; }
+      90%  { opacity: 0.85; }
+      100% { opacity: 0.50; }
     }
     @keyframes headlight-beam {
-      0%,100% { opacity: 0.18; transform: scaleX(1); }
-      40%     { opacity: 0.32; transform: scaleX(1.08); }
-      70%     { opacity: 0.12; transform: scaleX(0.94); }
+      0%,100% { opacity: 0.15; }
+      40%     { opacity: 0.28; }
+      70%     { opacity: 0.10; }
     }
+    /* Фари знаходяться на x≈56%, y≈27% зображення */
     .fleet::after {
       content: '';
       position: absolute; inset: 0;
       pointer-events: none;
       z-index: 0;
-      /* Два промені від фар — верхня та нижня фара */
       background:
-        /* Верхня фара — яскравіша */
-        radial-gradient(ellipse 160px 90px at 77% 40%, rgba(255,220,120,.55) 0%, rgba(255,180,60,.18) 45%, transparent 75%),
-        /* Нижня фара — менша */
-        radial-gradient(ellipse 110px 65px at 74% 62%, rgba(255,200,100,.45) 0%, rgba(255,160,40,.14) 45%, transparent 72%),
-        /* Загальний розсіяний ореол */
-        radial-gradient(ellipse 320px 200px at 76% 50%, rgba(240,140,20,.10) 0%, transparent 70%);
+        /* Головний проєктор — центр фари */
+        radial-gradient(ellipse 140px 80px at 56% 28%, rgba(255,225,140,.65) 0%, rgba(255,190,70,.22) 45%, transparent 72%),
+        /* DRL-кільце трохи вище */
+        radial-gradient(ellipse 90px 55px at 54% 21%, rgba(255,210,120,.50) 0%, rgba(255,175,50,.16) 50%, transparent 75%),
+        /* Помаранчевий покажчик повороту нижче */
+        radial-gradient(ellipse 70px 40px at 55% 36%, rgba(255,140,20,.40) 0%, rgba(255,120,10,.10) 55%, transparent 78%),
+        /* Загальний м'який ореол */
+        radial-gradient(ellipse 280px 180px at 55% 27%, rgba(240,160,30,.12) 0%, transparent 68%);
       animation: headlight-pulse 3.4s ease-in-out infinite;
     }
     .fleet-beam {
       position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       pointer-events: none; z-index: 0;
       background:
-        /* Промінь від верхньої фари вліво */
-        linear-gradient(175deg, transparent 54%, rgba(255,210,80,.07) 55%, rgba(255,210,80,.12) 60%, transparent 75%),
-        linear-gradient(168deg, transparent 50%, rgba(255,200,70,.06) 52%, transparent 70%);
+        /* Промінь від фари вліво-вниз */
+        linear-gradient(200deg, transparent 42%, rgba(255,200,80,.06) 44%, rgba(255,200,80,.10) 50%, transparent 62%),
+        linear-gradient(215deg, transparent 38%, rgba(255,190,60,.05) 41%, transparent 58%);
       animation: headlight-beam 3.4s ease-in-out infinite;
     }
     .fleet .container { position: relative; z-index: 1; }
