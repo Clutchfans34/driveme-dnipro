@@ -152,6 +152,28 @@
       color: var(--text);
       background: rgba(255,255,255,.07);
     }
+    @keyframes nav-dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(.7); }
+    }
+    .nav-how {
+      color: var(--accent) !important;
+      background: rgba(240,112,0,.1) !important;
+      border-color: rgba(240,112,0,.3) !important;
+      position: relative;
+    }
+    .nav-how::before {
+      content: '';
+      display: inline-block; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%;
+      margin-right: 7px; vertical-align: middle;
+      animation: nav-dot-pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .nav-how:hover {
+      background: rgba(240,112,0,.18) !important;
+      border-color: rgba(240,112,0,.6) !important;
+    }
     .nav-cta { font-size: 14px; padding: 10px 22px; }
 
     /* Hamburger */
@@ -1196,7 +1218,7 @@
     <li><a href="#earnings">Заробіток</a></li>
     <li><a href="#fleet">Авто</a></li>
     <li><a href="#benefits">Переваги</a></li>
-    <li><a href="#how">Як почати</a></li>
+    <li><a href="#how" class="nav-how">Як почати</a></li>
     <li><a href="#reviews">Відгуки</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
