@@ -134,20 +134,23 @@
       color: var(--muted); text-transform: uppercase;
     }
     .nav-links {
-      display: flex; align-items: center; gap: 32px; list-style: none;
+      display: flex; align-items: center; gap: 4px; list-style: none;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 100px;
+      padding: 5px 8px;
     }
     .nav-links a {
       color: var(--muted); text-decoration: none;
       font-size: 14px; font-weight: 500;
       padding: 6px 14px;
-      border-radius: 8px;
+      border-radius: 100px;
       border: 1px solid transparent;
       transition: color .2s, border-color .2s, background .2s;
     }
     .nav-links a:hover {
       color: var(--text);
-      border-color: var(--accent);
-      background: rgba(240,112,0,.07);
+      background: rgba(255,255,255,.07);
     }
     .nav-cta { font-size: 14px; padding: 10px 22px; }
 
